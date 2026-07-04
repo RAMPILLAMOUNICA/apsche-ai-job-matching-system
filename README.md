@@ -11,7 +11,40 @@ The **Internal Job Mobility Assistant** helps employees identify suitable intern
 The platform also provides HR partners with a centralized dashboard for managing employees, vacancies, applications, and organizational analytics.
 
 ---
+## 🌐 Live Demo
 
+**Frontend (Vercel):**
+https://apsche-ai-job-matching-system.vercel.app/
+
+**Backend API (Render):**
+https://apsche-ai-job-matching-system.onrender.com/docs
+
+## ⭐ Repository Highlights
+
+- AI-powered Internal Job Mobility Platform
+- Google Gemini Integration
+- React + FastAPI Full Stack Application
+- JWT Authentication
+- Resume Analyzer
+- AI Job Matching Engine
+- Career Path Recommendation System
+- HR Management Dashboard
+- Live Deployment on Vercel & Render
+- Complete Project Documentation
+
+## 📚 Project Documentation
+
+The repository includes complete project documentation covering:
+
+- Brainstorming & Ideation
+- Requirement Analysis
+- Project Design
+- Project Planning
+- Project Development
+- Performance Testing
+- Documentation & Demo
+- Project Demonstration
+- 
 ## ✨ Key Features
 
 ### 👨‍💼 Employee Features
@@ -70,6 +103,16 @@ The platform also provides HR partners with a centralized dashboard for managing
 - Google Gemini API
 
 ---
+## 🛠️ Technology Stack
+
+| Layer | Technologies |
+|--------|--------------|
+| Frontend | React, TypeScript, Tailwind CSS, Vite, Axios, Recharts |
+| Backend | FastAPI, SQLAlchemy, SQLite |
+| Authentication | JWT, Passlib, Bcrypt |
+| AI | Google Gemini API |
+| Deployment | Vercel, Render |
+| Version Control | Git & GitHub |
 
 ## 📊 Modules
 
@@ -162,7 +205,7 @@ cd backend
 
 pip install -r requirements.txt
 
-python main.py
+uvicorn main:app --reload
 ```
 
 Backend runs at:
@@ -219,6 +262,19 @@ SECRET_KEY=your_secret_key
 | Career Recommendations | 4 - 10 sec |
 
 ---
+## 🚀 Deployment
+
+Frontend: Vercel
+
+Backend: Render
+
+The application is deployed as a full-stack cloud application with the frontend hosted on Vercel and the backend hosted on Render.
+
+## 📖 API Documentation
+
+Swagger UI
+
+https://apsche-ai-job-matching-system.onrender.com/docs
 
 ## 🧪 Testing
 
@@ -238,7 +294,7 @@ The application has been tested for:
 ## 🔒 Security Features
 
 - JWT Authentication
-- Password Hashing using Bcrypt
+- Password Hashing (Passlib + Bcrypt)
 - Role-Based Access Control
 - Protected Routes
 - Environment Variable Management
@@ -267,4 +323,5 @@ University College of Engineering, JNTUK Kakinada
 
 ## 📄 License
 
-This project is developed for academic and internship purposes.
+
+This project was developed as part of the APSCHE SmartBridge Internship Program for educational and academic purposes.
