@@ -27,9 +27,9 @@ const AnalyticsPage = () => {
     const fetchData = async () => {
       try {
         const [jobsRes, candidatesRes, applicantsRes] = await Promise.all([
-          axios.get("http://localhost:8000/api/jobs"),
-          axios.get("http://localhost:8000/api/profile/all"),
-          axios.get("http://localhost:8000/api/applications"),
+          axios.get("https://apsche-ai-job-matching-system.onrender.com/api/jobs"),
+          axios.get("https://apsche-ai-job-matching-system.onrender.com/api/profile/all"),
+          axios.get("https://apsche-ai-job-matching-system.onrender.com/api/applications"),
         ]);
         
         if (Array.isArray(jobsRes.data)) setJobs(jobsRes.data);

@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 import uvicorn
 from database.database import engine
@@ -12,12 +13,11 @@ from routes.application_routes import router as application_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Internal Job Mobility Assistant")
+allowed_origins = [origin.strip() for origin in os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if origin.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",  # Vite frontend
-        "http://127.0.0.1:5173"
-    ],
+    allow_origins=allowed_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -83,7 +83,7 @@ const AIRecommendations = () => {
     };
 
     try {
-      const profileRes = await axios.get("http://localhost:8000/api/profile");
+      const profileRes = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/profile");
       const data = profileRes.data;
       if (data && !data.message) {
         const ensureArray = (val: string | string[] | undefined | null): string[] => {
@@ -106,7 +106,7 @@ const AIRecommendations = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/api/recommendations/generate", profilePayload);
+      const response = await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/recommendations/generate", profilePayload);
       const data = response.data;
       
       const paths = data.careerPaths || data.career_paths;

@@ -53,7 +53,7 @@ const EmployeeDashboard = () => {
   const fetchProfile = useCallback(async () => {
     await Promise.resolve();
     try {
-      const response = await axios.get("http://localhost:8000/api/profile");
+      const response = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/profile");
       const data = response.data;
       
       // If backend returns the stub message, fallback to default profile state
@@ -107,7 +107,7 @@ const EmployeeDashboard = () => {
     ];
 
     try {
-      const response = await axios.get("http://localhost:8000/api/jobs");
+      const response = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/jobs");
       if (Array.isArray(response.data)) {
         setJobs(response.data);
       } else {
@@ -133,7 +133,7 @@ const EmployeeDashboard = () => {
     e.preventDefault();
     setSavingProfile(true);
     try {
-      await axios.put("http://localhost:8000/api/profile", profile);
+      await axios.put("https://apsche-ai-job-matching-system.onrender.com/api/profile", profile);
       alert("Career dossier updated successfully!");
     } catch (err) {
       console.error("Failed to save profile dossier", err);
@@ -145,7 +145,7 @@ const EmployeeDashboard = () => {
 
   const handleApply = async (jobId: string) => {
     try {
-      await axios.post("http://localhost:8000/api/applications", { job_id: jobId });
+      await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/applications", { job_id: jobId });
       alert("Successfully applied for this position!");
     } catch (err) {
       console.error("Application failed", err);
@@ -181,7 +181,7 @@ const EmployeeDashboard = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:8000/api/jobs/match", payload);
+      const response = await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/jobs/match", payload);
       const data = response.data;
 
       setAnalyses((prev) => ({

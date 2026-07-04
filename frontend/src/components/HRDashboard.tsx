@@ -55,7 +55,7 @@ const HRDashboard = () => {
     await Promise.resolve();
     setLoadingJobs(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/jobs");
+      const response = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/jobs");
       if (Array.isArray(response.data)) {
         setJobs(response.data);
       }
@@ -70,7 +70,7 @@ const HRDashboard = () => {
     await Promise.resolve();
     setLoadingCandidates(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/profile/all");
+      const response = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/profile/all");
       if (Array.isArray(response.data)) {
         setCandidates(response.data);
       }
@@ -85,7 +85,7 @@ const HRDashboard = () => {
     await Promise.resolve();
     setLoadingApplicants(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/applications");
+      const response = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/applications");
       if (Array.isArray(response.data)) {
         setApplicants(response.data);
       }
@@ -138,7 +138,7 @@ const HRDashboard = () => {
     };
 
     try {
-      await axios.post("http://localhost:8000/api/jobs", payload);
+      await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/jobs", payload);
       alert("Vacancy Posted Successfully");
       setShowModal(false);
       setVacancy({
@@ -158,7 +158,7 @@ const HRDashboard = () => {
   const deleteVacancy = async (id: string) => {
     if (!confirm("Are you sure you want to delete this job vacancy?")) return;
     try {
-      await axios.delete(`http://localhost:8000/api/jobs/${id}`);
+      await axios.delete(`https://apsche-ai-job-matching-system.onrender.com/api/jobs/${id}`);
       alert("Vacancy deleted successfully");
       fetchJobs();
     } catch (err) {
@@ -169,7 +169,7 @@ const HRDashboard = () => {
 
   const handleStatusChange = async (applicantId: string, newStatus: string) => {
     try {
-      await axios.put(`http://localhost:8000/api/applications/${applicantId}`, {
+      await axios.put(`https://apsche-ai-job-matching-system.onrender.com/api/applications/${applicantId}`, {
         status: newStatus,
       });
       fetchApplicants();

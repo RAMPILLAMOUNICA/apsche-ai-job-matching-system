@@ -41,7 +41,7 @@ const MyProfile = ({ currentUser, onUserUpdate, onLogout }: MyProfileProps) => {
   const fetchProfile = useCallback(async () => {
     await Promise.resolve();
     try {
-      const response = await axios.get("http://localhost:8000/api/profile");
+      const response = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/profile");
       const data = response.data;
       if (data && !data.message) {
         setProfile({
@@ -72,14 +72,14 @@ const MyProfile = ({ currentUser, onUserUpdate, onLogout }: MyProfileProps) => {
     setUpdatingDetails(true);
     try {
       // 1. Update Name in DBUser
-      const userRes = await axios.put("http://localhost:8000/api/profile/user", {
+      const userRes = await axios.put("https://apsche-ai-job-matching-system.onrender.com/api/profile/user", {
         name: fullName,
       });
       // Notify parent App component
       onUserUpdate(userRes.data);
 
       // 2. Update Department and Designation in DBEmployeeProfile
-      await axios.put("http://localhost:8000/api/profile", {
+      await axios.put("https://apsche-ai-job-matching-system.onrender.com/api/profile", {
         skills: profile.skills,
         experience: profile.experience,
         certifications: profile.certifications,
@@ -113,7 +113,7 @@ const MyProfile = ({ currentUser, onUserUpdate, onLogout }: MyProfileProps) => {
 
     setUpdatingPassword(true);
     try {
-      await axios.put("http://localhost:8000/api/auth/password", {
+      await axios.put("https://apsche-ai-job-matching-system.onrender.com/api/auth/password", {
         current_password: passwords.current_password,
         new_password: passwords.new_password,
       });
@@ -134,7 +134,7 @@ const MyProfile = ({ currentUser, onUserUpdate, onLogout }: MyProfileProps) => {
   const handleDeleteAccount = async () => {
     setDeleting(true);
     try {
-      await axios.delete(`http://localhost:8000/api/auth/delete/${currentUser.email}`);
+      await axios.delete(`https://apsche-ai-job-matching-system.onrender.com/api/auth/delete/${currentUser.email}`);
       alert("Account successfully deleted.");
       onLogout(); // Log out from App context and clear cache
     } catch (err) {

@@ -26,7 +26,7 @@ const ResumeUpload = () => {
     setInsights(null);
     
     try {
-      const response = await axios.post("http://localhost:8000/api/resume/analyze", {
+      const response = await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/resume/analyze", {
         resume_text: resumeText,
       });
       
@@ -67,7 +67,7 @@ const ResumeUpload = () => {
     try {
       let existingInterests = "";
       try {
-        const profileRes = await axios.get("http://localhost:8000/api/profile");
+        const profileRes = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/profile");
         if (profileRes.data && !profileRes.data.message) {
           existingInterests = profileRes.data.career_interests || "";
         }
@@ -85,7 +85,7 @@ const ResumeUpload = () => {
         career_interests: existingInterests,
       };
       
-      await axios.put("http://localhost:8000/api/profile", payload);
+      await axios.put("https://apsche-ai-job-matching-system.onrender.com/api/profile", payload);
       alert("Resume details successfully applied to your Career Dossier!");
     } catch (err) {
       console.error("Failed to apply details to dossier", err);

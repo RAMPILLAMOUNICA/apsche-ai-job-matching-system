@@ -45,7 +45,7 @@ const LoginRegister = ({ onLoginSuccess }: LoginRegisterProps) => {
     try {
       if (isLogin) {
         // Login Request
-        const loginRes = await axios.post("http://localhost:8000/api/auth/login", {
+        const loginRes = await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/auth/login", {
           email: formData.email,
           password: formData.password,
         });
@@ -67,7 +67,7 @@ const LoginRegister = ({ onLoginSuccess }: LoginRegisterProps) => {
 
           // Attempt to call /api/auth/me to fetch user details
           try {
-            const meRes = await axios.get("http://localhost:8000/api/auth/me");
+            const meRes = await axios.get("https://apsche-ai-job-matching-system.onrender.com/api/auth/me");
             onLoginSuccess(meRes.data);
           } catch (meErr) {
             console.warn("Could not retrieve user info from /api/auth/me, decoding token payload.", meErr);
@@ -88,7 +88,7 @@ const LoginRegister = ({ onLoginSuccess }: LoginRegisterProps) => {
         }
       } else {
         // Registration Request
-        const registerRes = await axios.post("http://localhost:8000/api/auth/register", {
+        const registerRes = await axios.post("https://apsche-ai-job-matching-system.onrender.com/api/auth/register", {
           name: formData.name,
           email: formData.email,
           password: formData.password,
